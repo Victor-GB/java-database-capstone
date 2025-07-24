@@ -2,8 +2,8 @@ package com.project.back_end.models;
 
 import org.springframework.data.mongodb.core.mapping.Document; // marks this class as a MongoDB document
 import org.springframework.data.annotation.Id; // primary key identifier for MongoDB
-import javax.validation.constraints.NotNull; // enforce non-null constraints
-import javax.validation.constraints.Size; // enforce string length constraints
+import jakarta.validation.constraints.NotNull; // enforce non-null constraints
+import jakarta.validation.constraints.Size; // enforce string length constraints
 
 @Document(collection = "prescriptions") // map this class to the 'prescriptions' collection in MongoDB
 public class Prescription {

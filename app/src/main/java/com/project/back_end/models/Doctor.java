@@ -1,14 +1,14 @@
 package com.project.back_end.models;
 
-import javax.persistence.Entity; // marks this class as a JPA entity
-import javax.persistence.Id; // primary key identifier
-import javax.persistence.GeneratedValue; // auto-generate PK
-import javax.persistence.GenerationType; // generation strategy
-import javax.persistence.ElementCollection; // for basic collections
-import javax.validation.constraints.NotNull; // enforce non-null constraints
-import javax.validation.constraints.Size; // enforce string length constraints
-import javax.validation.constraints.Email; // validate email format
-import javax.validation.constraints.Pattern; // validate string against regex
+import jakarta.persistence.Entity; // marks this class as a JPA entity
+import jakarta.persistence.Id; // primary key identifier
+import jakarta.persistence.GeneratedValue; // auto-generate PK
+import jakarta.persistence.GenerationType; // generation strategy
+import jakarta.persistence.ElementCollection; // for basic collections
+import jakarta.validation.constraints.NotNull; // enforce non-null constraints
+import jakarta.validation.constraints.Size; // enforce string length constraints
+import jakarta.validation.constraints.Email; // validate email format
+import jakarta.validation.constraints.Pattern; // validate string against regex
 import com.fasterxml.jackson.annotation.JsonProperty; // JSON property control
 import java.util.List; // for collection of available times
 

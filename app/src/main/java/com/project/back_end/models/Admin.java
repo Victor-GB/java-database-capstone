@@ -1,10 +1,10 @@
 package com.project.back_end.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity // marks this class as a JPA entity
