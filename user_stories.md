@@ -1,3 +1,4 @@
+## Admin User Stories
 **Title:**
 Admin user story 1  
 _As an admin, I want to log into the portal with my username and password, so that I can manage the platform securely._  
@@ -72,7 +73,7 @@ _As an admin, I want to run a stored procedure in the MySQL CLI to get the numbe
 - Consider adding parameters to filter by doctor or date range in the future.
 
 ---
-
+## Patient User Stories
 **Title:**
 Patient user story 1  
 _As a patient, I want to view a list of doctors without logging in, so that I can explore my options before registering._  
@@ -141,7 +142,7 @@ _As a patient, I want to log out of the portal, so that I can secure my account 
 - Ensure session expiry is handled gracefully even if the user’s session times out server‑side.
 
 ---
-
+## Doctor User Stories
 **Title:**
 Doctor user story 1  
 _As a doctor, I want to log into and log out of the portal, so that I can manage my appointments and protect my data._  
