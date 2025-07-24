@@ -1,4 +1,5 @@
-**Title:**  
+**Title:**
+Admin user story 1  
 _As an admin, I want to log into the portal with my username and password, so that I can manage the platform securely._  
 **Acceptance Criteria:**  
 1. The login page accepts a valid username and password combination.  
@@ -12,7 +13,8 @@ _As an admin, I want to log into the portal with my username and password, so th
 
 ---
 
-**Title:**  
+**Title:**
+Admin user story 2  
 _As an admin, I want to log out of the portal, so that I can protect system access when I’m finished._  
 **Acceptance Criteria:**  
 1. A visible “Logout” button is available on every admin page.  
@@ -26,7 +28,8 @@ _As an admin, I want to log out of the portal, so that I can protect system acce
 
 ---
 
-**Title:**  
+**Title:**
+Admin user story 3  
 _As an admin, I want to add doctors to the portal, so that they can be assigned appointments and managed by the system._  
 **Acceptance Criteria:**  
 1. The “Add Doctor” form collects name, specialty, email, and contact info.  
@@ -40,7 +43,8 @@ _As an admin, I want to add doctors to the portal, so that they can be assigned 
 
 ---
 
-**Title:**  
+**Title:**
+Admin user story 4  
 _As an admin, I want to delete a doctor’s profile from the portal, so that I can remove inactive or departed staff._  
 **Acceptance Criteria:**  
 1. The doctor list displays a delete icon/button next to each entry.  
@@ -54,7 +58,8 @@ _As an admin, I want to delete a doctor’s profile from the portal, so that I c
 
 ---
 
-**Title:**  
+**Title:**
+Admin user story 5  
 _As an admin, I want to run a stored procedure in the MySQL CLI to get the number of appointments per month, so that I can track usage statistics._  
 **Acceptance Criteria:**  
 1. A MySQL stored procedure `sp_get_appointments_per_month()` exists and compiles without errors.  
@@ -68,7 +73,8 @@ _As an admin, I want to run a stored procedure in the MySQL CLI to get the numbe
 
 ---
 
-**Title:**  
+**Title:**
+Patient user story 1  
 _As a patient, I want to view a list of doctors without logging in, so that I can explore my options before registering._  
 **Acceptance Criteria:**  
 1. Non‑authenticated users can navigate to a “Doctors” page or section.  
@@ -81,7 +87,8 @@ _As a patient, I want to view a list of doctors without logging in, so that I ca
 
 ---
 
-**Title:**  
+**Title:**
+Patient user story 2  
 _As a patient, I want to sign up using my email and password, so that I can book appointments._  
 **Acceptance Criteria:**  
 1. The registration form collects email, password, and basic profile info (name, phone).  
@@ -94,7 +101,8 @@ _As a patient, I want to sign up using my email and password, so that I can book
 
 ---
 
-**Title:**  
+**Title:**
+Patient user story 3  
 _As a patient, I want to log in and book an hour‐long appointment to consult with a doctor, so that I can schedule my visit._  
 **Acceptance Criteria:**  
 1. The login form accepts valid credentials and rejects invalid ones with a generic error message.  
@@ -106,7 +114,7 @@ _As a patient, I want to log in and book an hour‐long appointment to consult w
 - Prevent overlapping bookings for the same doctor/time slot.
 
 ---
-
+Patient user story 4  
 **Title:**  
 _As a patient, I want to view my upcoming appointments, so that I can prepare accordingly._  
 **Acceptance Criteria:**  
@@ -120,7 +128,8 @@ _As a patient, I want to view my upcoming appointments, so that I can prepare ac
 
 ---
 
-**Title:**  
+**Title:**
+Patient user story 5  
 _As a patient, I want to log out of the portal, so that I can secure my account when I’m done._  
 **Acceptance Criteria:**  
 1. A “Logout” button is visible on every authenticated page.  
@@ -133,7 +142,8 @@ _As a patient, I want to log out of the portal, so that I can secure my account 
 
 ---
 
-**Title:**  
+**Title:**
+Doctor user story 1  
 _As a doctor, I want to log into and log out of the portal, so that I can manage my appointments and protect my data._  
 **Acceptance Criteria:**  
 1. The login page accepts valid doctor credentials and rejects invalid ones with a generic error.  
@@ -147,7 +157,8 @@ _As a doctor, I want to log into and log out of the portal, so that I can manage
 
 ---
 
-**Title:**  
+**Title:**
+Doctor user story 2  
 _As a doctor, I want to view my appointment calendar, so that I can stay organized._  
 **Acceptance Criteria:**  
 1. A “My Calendar” page displays all upcoming appointments in a calendar or list view.  
@@ -160,7 +171,8 @@ _As a doctor, I want to view my appointment calendar, so that I can stay organiz
 
 ---
 
-**Title:**  
+**Title:**
+Doctor user story 3  
 _As a doctor, I want to mark my unavailability, so that patients only see my available slots._  
 **Acceptance Criteria:**  
 1. On the “My Calendar” page, I can select date(s) and time range(s) to block out.  
@@ -174,7 +186,8 @@ _As a doctor, I want to mark my unavailability, so that patients only see my ava
 
 ---
 
-**Title:**  
+**Title:**
+Doctor user story 4  
 _As a doctor, I want to update my profile with specialization and contact information, so that patients have up‑to‑date details._  
 **Acceptance Criteria:**  
 1. A “My Profile” page allows editing fields: name, specialty, phone, email, office location.  
@@ -187,7 +200,8 @@ _As a doctor, I want to update my profile with specialization and contact inform
 
 ---
 
-**Title:**  
+**Title:**
+Doctor user story 5  
 _As a doctor, I want to view patient details for upcoming appointments, so that I can be prepared._  
 **Acceptance Criteria:**  
 1. From the calendar or appointment list, I can click an appointment and see patient info: name, age, contact, and brief medical history.  
