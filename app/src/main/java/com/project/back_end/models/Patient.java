@@ -1,59 +1,108 @@
 package com.project.back_end.models;
 
+import javax.persistence.Entity; // marks this class as a JPA entity
+import javax.persistence.Id; // primary key identifier
+import javax.persistence.GeneratedValue; // auto-generate PK
+import javax.persistence.GenerationType; // generation strategy
+import javax.validation.constraints.NotNull; // enforce non-null constraints
+import javax.validation.constraints.Size; // enforce string length constraints
+import javax.validation.constraints.Email; // validate email format
+import javax.validation.constraints.Pattern; // validate string against regex
+import com.fasterxml.jackson.annotation.JsonProperty; // JSON property control
+
+@Entity // marks this class as a JPA entity
 public class Patient {
-// @Entity annotation:
-//    - Marks the class as a JPA entity, meaning it represents a table in the database.
-//    - Required for persistence frameworks (e.g., Hibernate) to map the class to a database table.
 
-// 1. 'id' field:
-//    - Type: private Long
-//    - Description:
-//      - Represents the unique identifier for each patient.
-//      - The @Id annotation marks it as the primary key.
-//      - The @GeneratedValue(strategy = GenerationType.IDENTITY) annotation auto-generates the ID value when a new record is inserted into the database.
+    @Id // primary key identifier
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-generate PK using IDENTITY strategy
+    private Long id;
 
-// 2. 'name' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the patient's full name.
-//      - The @NotNull annotation ensures that the patient's name is required.
-//      - The @Size(min = 3, max = 100) annotation ensures that the name length is between 3 and 100 characters. 
-//      - Provides validation for correct input and user experience.
+    @NotNull(message = "name cannot be null") // enforce non-null constraint on name
+    @Size(min = 3, max = 100, message = "name must be between 3 and 100 characters") // enforce length constraints on name
+    private String name;
 
+    @NotNull(message = "email cannot be null") // enforce non-null constraint on email
+    @Email(message = "email must be a valid format") // validate email format
+    private String email;
 
-// 3. 'email' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the patient's email address.
-//      - The @NotNull annotation ensures that an email address must be provided.
-//      - The @Email annotation validates that the email address follows a valid email format (e.g., patient@example.com).
+    @NotNull(message = "password cannot be null") // enforce non-null constraint on password
+    @Size(min = 6, message = "password must be at least 6 characters") // enforce minimum length on password
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // hide password field in JSON responses
+    private String password;
 
-// 4. 'password' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the patient's password for login authentication.
-//      - The @NotNull annotation ensures that a password must be provided.
-//      - The @Size(min = 6) annotation ensures that the password must be at least 6 characters long.
+    @NotNull(message = "phone cannot be null") // enforce non-null constraint on phone
+    @Pattern(regexp = "^[0-9]{10}$", message = "phone must be exactly 10 digits") // validate phone format
+    private String phone;
 
-// 5. 'phone' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the patient's phone number.
-//      - The @NotNull annotation ensures that a phone number must be provided.
-//      - The @Pattern(regexp = "^[0-9]{10}$") annotation validates that the phone number must be exactly 10 digits long.
+    @NotNull(message = "address cannot be null") // enforce non-null constraint on address
+    @Size(max = 255, message = "address must not exceed 255 characters") // enforce max length on address
+    private String address;
 
-// 6. 'address' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the patient's address.
-//      - The @NotNull annotation ensures that the address must be provided.
-//      - The @Size(max = 255) annotation ensures that the address does not exceed 255 characters in length, providing validation for the address input.
+    public Patient() {
+        // default constructor required by JPA
+    }
 
+    public Patient(
+            Long id,
+            String name,
+            String email,
+            String password,
+            String phone,
+            String address
+    ) { // parameterized constructor
+        this.id = id; // set unique identifier
+        this.name = name; // set patient's name
+        this.email = email; // set email address
+        this.password = password; // set login password
+        this.phone = phone; // set phone number
+        this.address = address; // set address
+    }
 
-// 7. Getters and Setters:
-//    - Standard getter and setter methods are provided for all fields: id, name, email, password, phone, and address.
-//    - These methods allow access and modification of the fields of the Patient class.
+    public Long getId() {
+        return id; // returns the unique identifier of the patient
+    }
 
-  
+    public void setId(Long id) {
+        this.id = id; // sets the unique identifier of the patient
+    }
 
+    public String getName() {
+        return name; // returns the patient's name
+    }
+
+    public void setName(String name) {
+        this.name = name; // sets the patient's name
+    }
+
+    public String getEmail() {
+        return email; // returns the patient's email address
+    }
+
+    public void setEmail(String email) {
+        this.email = email; // sets the patient's email address
+    }
+
+    public String getPassword() {
+        return password; // returns the patient's password (write-only in JSON)
+    }
+
+    public void setPassword(String password) {
+        this.password = password; // sets the patient's password
+    }
+
+    public String getPhone() {
+        return phone; // returns the patient's phone number
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone; // sets the patient's phone number
+    }
+
+    public String getAddress() {
+        return address; // returns the patient's address
+    }
+
+    public void setAddress(String address) {
+        this.address = address; // sets the patient's address
+    }
 }

@@ -1,56 +1,98 @@
 package com.project.back_end.models;
 
+import org.springframework.data.mongodb.core.mapping.Document; // marks this class as a MongoDB document
+import org.springframework.data.annotation.Id; // primary key identifier for MongoDB
+import javax.validation.constraints.NotNull; // enforce non-null constraints
+import javax.validation.constraints.Size; // enforce string length constraints
+
+@Document(collection = "prescriptions") // map this class to the 'prescriptions' collection in MongoDB
 public class Prescription {
 
-  // @Document annotation:
-//    - Marks the class as a MongoDB document (a collection in MongoDB).
-//    - The collection name is specified as "prescriptions" to map this class to the "prescriptions" collection in MongoDB.
+    @Id // primary key identifier
+    private String id;
 
-// 1. 'id' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the unique identifier for each prescription.
-//      - The @Id annotation marks it as the primary key in the MongoDB collection.
-//      - The id is of type String, which is commonly used for MongoDB's ObjectId as it stores IDs as strings in the database.
+    @NotNull(message = "patientName cannot be null") // enforce non-null constraint on patientName
+    @Size(min = 3, max = 100, message = "patientName must be between 3 and 100 characters") // enforce length constraints on patientName
+    private String patientName;
 
-// 2. 'patientName' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the name of the patient receiving the prescription.
-//      - The @NotNull annotation ensures that the patient name is required.
-//      - The @Size(min = 3, max = 100) annotation ensures that the name length is between 3 and 100 characters, ensuring a reasonable name length.
+    @NotNull(message = "appointmentId cannot be null") // enforce non-null constraint on appointmentId
+    private Long appointmentId;
 
-// 3. 'appointmentId' field:
-//    - Type: private Long
-//    - Description:
-//      - Represents the ID of the associated appointment where the prescription was given.
-//      - The @NotNull annotation ensures that the appointment ID is required for the prescription.
+    @NotNull(message = "medication cannot be null") // enforce non-null constraint on medication
+    @Size(min = 3, max = 100, message = "medication must be between 3 and 100 characters") // enforce length constraints on medication
+    private String medication;
 
-// 4. 'medication' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the medication prescribed to the patient.
-//      - The @NotNull annotation ensures that the medication name is required.
-//      - The @Size(min = 3, max = 100) annotation ensures that the medication name is between 3 and 100 characters, which ensures meaningful medication names.
+    @NotNull(message = "dosage cannot be null") // enforce non-null constraint on dosage
+    private String dosage;
 
-// 5. 'dosage' field:
-//    - Type: private String
-//    - Description:
-//      - Represents the dosage information for the prescribed medication.
-//      - The @NotNull annotation ensures that the dosage information is provided.
+    @Size(max = 200, message = "doctorNotes must not exceed 200 characters") // enforce max length on doctorNotes
+    private String doctorNotes;
 
-// 6. 'doctorNotes' field:
-//    - Type: private String
-//    - Description:
-//      - Represents any additional notes or instructions from the doctor regarding the prescription.
-//      - The @Size(max = 200) annotation ensures that the doctor's notes do not exceed 200 characters, providing a reasonable limit for additional notes.
+    public Prescription() {
+        // default constructor required by Spring Data MongoDB
+    }
 
-// 7. Constructors:
-//    - The class includes a no-argument constructor (default constructor) and a parameterized constructor that initializes the fields: patientName, medication, dosage, doctorNotes, and appointmentId.
+    public Prescription(
+            String id,
+            String patientName,
+            Long appointmentId,
+            String medication,
+            String dosage,
+            String doctorNotes
+    ) { // parameterized constructor
+        this.id = id; // set unique identifier
+        this.patientName = patientName; // set patient's name
+        this.appointmentId = appointmentId; // set associated appointment ID
+        this.medication = medication; // set prescribed medication
+        this.dosage = dosage; // set dosage information
+        this.doctorNotes = doctorNotes; // set doctor's notes
+    }
 
-// 8. Getters and Setters:
-//    - Standard getter and setter methods are provided for all fields: id, patientName, medication, dosage, doctorNotes, and appointmentId.
-//    - These methods allow access and modification of the fields of the Prescription class.
+    public String getId() {
+        return id; // returns the unique identifier of the prescription
+    }
 
+    public void setId(String id) {
+        this.id = id; // sets the unique identifier of the prescription
+    }
 
+    public String getPatientName() {
+        return patientName; // returns the patient's name
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName; // sets the patient's name
+    }
+
+    public Long getAppointmentId() {
+        return appointmentId; // returns the associated appointment ID
+    }
+
+    public void setAppointmentId(Long appointmentId) {
+        this.appointmentId = appointmentId; // sets the associated appointment ID
+    }
+
+    public String getMedication() {
+        return medication; // returns the prescribed medication
+    }
+
+    public void setMedication(String medication) {
+        this.medication = medication; // sets the prescribed medication
+    }
+
+    public String getDosage() {
+        return dosage; // returns the dosage information
+    }
+
+    public void setDosage(String dosage) {
+        this.dosage = dosage; // sets the dosage information
+    }
+
+    public String getDoctorNotes() {
+        return doctorNotes; // returns the doctor's notes
+    }
+
+    public void setDoctorNotes(String doctorNotes) {
+        this.doctorNotes = doctorNotes; // sets the doctor's notes
+    }
 }
