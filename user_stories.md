@@ -1,5 +1,3 @@
----
-
 **Title:**  
 _As an admin, I want to log into the portal with my username and password, so that I can manage the platform securely._  
 **Acceptance Criteria:**  
